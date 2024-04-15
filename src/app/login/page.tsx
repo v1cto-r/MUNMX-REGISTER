@@ -5,14 +5,10 @@ import styles from "./page.module.css";
 
 export default function Login() {
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  }
-
   return (
     <main className={styles.main}>
       <div className={styles.loginBox}>
-        <form onSubmit={handleSubmit}>
+        <form>
           <label>Usuario</label>
           <input type="text" placeholder="Usuario..." />
           <label>Contraseña</label>
