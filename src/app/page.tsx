@@ -57,7 +57,8 @@ function DelegateList() {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
-    fetch("/api/getDelegates", { next: { revalidate: 1 } })
+    fetch("/api/getDelegates?"+new Date().getTime(), 
+    { headers: { 'Cache-Control': 'no-store' } })
       .then((res) => res.json())
       .then((data: DelegateType[]) => setDelegates(data));
   }, []);
@@ -88,7 +89,9 @@ function DelegateList() {
 function Delegate(props: {name: string, country: number, committee: number, CommitteeKeys: {[key: number]: string}, CountryKeys: {[key: number]: string[]}}) {
   const delegateName = capitalizeFirstLetter(props.name);
   const committeeName = props.CommitteeKeys[props.committee];
-  const countryName: string[] = props.CountryKeys[props.country].map((country) => capitalizeFirstLetter(country));
+  const countryName: string[] = props.CountryKeys[props.country]
+  ? props.CountryKeys[props.country].map((country) => capitalizeFirstLetter(country))
+  : ["Non existent country"];
 
   const delegateProperties = {
     name: props.name,
