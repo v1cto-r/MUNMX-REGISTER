@@ -2,10 +2,7 @@ import connectMongoDB from "@/app/connections/mongoConnection";
 import Delegate from "@/app/models/delegate";
 import { NextResponse } from "next/server";
 
-export const fetchCache = 'force-no-store';
-
-export async function GET(request: Request) {
-  await request.json();
+export async function GET() {
   await connectMongoDB();
   const delegates = await Delegate.find({ registered: false });
 
