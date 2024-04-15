@@ -17,17 +17,53 @@
   padding: 1rem;
   background-color: var(--not-white);
   border-radius: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.messageImg {
+  margin-right: 0.5rem;
+
 }
 
 .delegateList {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 9rem;
   height: 90%;
   overflow-y: auto;
 }
 
 .delegateCard {
+  position: relative;
+  background: var(--not-white);
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  height: 8rem;
+}
 
+.delegateCard h2 {
+  font-size: 1.8rem;
+}
+
+.delegateCard p {
+  font-size: 1.2rem;
+}
+
+.delegateCard button {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  border: #03ad03 3px solid;
+  background: none;
+  color: var(--green);
+}
+
+.delegateCard button:hover {
+  background: #00c70023;
 }
 
 .searchBar {
@@ -35,4 +71,15 @@
   justify-content: center;
   margin-bottom: 1rem;
   height: 10%;
+  width: 100%;
+}
+
+.searchBar input {
+  width: 50%;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  background: var(--not-white);
+  color: var(--not-black);
+  border: var(--not-black) 3px solid;
 }

@@ -28,7 +28,7 @@ export default function Home() {
       <DelegateList />
       {message && 
         <div className={styles.message}>
-          <Image src={isSuccess ? `/success.svg`:`error.svg`} alt='status icon' width={32} height={32}/>
+          <Image className={styles.messageImg} src={isSuccess ? `/success.svg`:`error.svg`} alt='status icon' width={48} height={48}/>
           <span>{message}</span>
         </div>}
     </main>
@@ -39,7 +39,7 @@ function SearchBar({ setSearchTerm }: { setSearchTerm: (searchTerm: string) => v
 
   return (
     <div className={styles.searchBar}>
-      <input type="text" placeholder="Buscar delegado" onChange={e => setSearchTerm(e.target.value)}/>
+      <input type="text" placeholder="Buscar delegado..." onChange={e => setSearchTerm(e.target.value)}/>
     </div>
   )
 }
