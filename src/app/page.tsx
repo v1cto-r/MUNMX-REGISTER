@@ -57,7 +57,7 @@ function DelegateList() {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
-    fetch("/api/getDelegates")
+    fetch("/api/getDelegates", { next: { revalidate: 1 } })
       .then((res) => res.json())
       .then((data: DelegateType[]) => setDelegates(data));
   }, []);
