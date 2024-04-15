@@ -6,5 +6,7 @@ export async function GET() {
   await connectMongoDB();
   const delegates = await Delegate.find({ registered: false });
 
+  console.log("fetched delegates")
+
   return NextResponse.json(delegates);
 }
