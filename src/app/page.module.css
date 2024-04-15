@@ -27,8 +27,8 @@
 
 .delegateList {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 9rem;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: 12rem;
   height: 90%;
   overflow-y: auto;
 }
@@ -39,7 +39,7 @@
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  height: 8rem;
+  height: 11rem;
 }
 
 .delegateCard h2 {
@@ -75,11 +75,26 @@
 }
 
 .searchBar input {
-  width: 50%;
+  width: 100%;
   padding: 0.5rem;
   font-size: 1.5rem;
   border-radius: 0.5rem;
   background: var(--not-white);
   color: var(--not-black);
   border: var(--not-black) 3px solid;
+}
+
+@media screen and (min-width: 920px) {
+  .searchBar input {
+    width: 50%;
+  }
+
+  .delegateList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 9rem;
+  }
+
+  .delegateCard {
+    height: 8rem;
+  }
 }
