@@ -6,5 +6,6 @@ export async function GET() {
   await connectMongoDB();
   const delegates = await Delegate.find({ registered: false });
 
-  return NextResponse.json(delegates);
+  
+  return NextResponse.json(delegates, {headers: {'Cache-Control': 'no-store'}});
 }

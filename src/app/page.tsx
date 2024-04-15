@@ -57,10 +57,13 @@ function DelegateList() {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
-    fetch("/api/getDelegates", 
+    fetch("/api/getDelegates?"+new Date().getTime(), 
       {
+        next: {
+
+        },
         headers: {
-          'Cache-Control': 'no-cache'
+          'Cache-Control': 'no-store'
         }
       }
     )
