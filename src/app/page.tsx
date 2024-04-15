@@ -57,13 +57,7 @@ function DelegateList() {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
-    fetch("/api/getDelegates", 
-      {
-        headers: {
-          'Cache-Control': 'no-cache'
-        }
-      }
-    )
+    fetch("/api/getDelegates", { next: { revalidate: 1 }, cache: "no-cache"})
       .then((res) => res.json())
       .then((data: DelegateType[]) => setDelegates(data));
   }, []);
