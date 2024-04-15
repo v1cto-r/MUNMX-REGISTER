@@ -57,13 +57,13 @@ function DelegateList() {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
-    fetch("/api/getDelegates", { next: { revalidate: 1 } })
+    fetch("/api/getDelegates", { next: { revalidate: 1 }, cache: "no-cache"})
       .then((res) => res.json())
       .then((data: DelegateType[]) => setDelegates(data));
   }, []);
 
   useEffect(() => {
-    console.log(delegates);
+    console.log("fetched delegates");
   }, [delegates]);
 
   const NumberToCommitteeWithIndex = NumberToCommittee as {[key: number]: string};
