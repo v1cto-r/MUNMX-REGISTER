@@ -58,7 +58,7 @@ function DelegateList() {
 
   useEffect(() => {
     fetch("/api/getDelegates?"+new Date().getTime(), 
-    { headers: { 'Cache-Control': 'no-store' } })
+    { cache: "no-store" })
       .then((res) => res.json())
       .then((data: DelegateType[]) => setDelegates(data));
   }, []);
