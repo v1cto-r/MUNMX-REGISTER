@@ -1,0 +1,39 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+}
+
+.loginBox {
+  padding: 1rem;
+  background: var(--not-white);
+}
+
+.loginBox form{
+  display: flex;
+  flex-direction: column;
+}
+
+.loginBox form label {
+  font-size: 1.5rem;
+}
+
+.loginBox form input[type="text"], .loginBox form input[type="password"] {
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.loginBox form button {
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: #03ad03 3px solid;
+  background: none;
+  color: var(--green);
+  cursor: pointer;
+}

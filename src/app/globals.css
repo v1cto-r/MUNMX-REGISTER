@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-  --background-cream: #F1E9D9;
+  --background-cream: #e8e1d2;
   --not-white: #F8F8F8;
   --not-black: #333333;
   --green: #00c700;
+  --background-dark: #2c2b38;
 }
 
 * {
@@ -21,7 +22,7 @@ body {
 
 body {
   font-family: "Rubik", sans-serif;
-  background: var(--background-cream);
+  background: var(--background-dark);
   width: 100lvw;
   height: 100lvh;
   color: var(--not-black);
