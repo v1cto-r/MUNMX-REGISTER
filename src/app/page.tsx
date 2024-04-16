@@ -85,7 +85,7 @@ function DelegateList() {
   const NumberToCountryWithIndex = NumberToCountry as {[key: number]: string[]};
 
   const filteredDelegates = delegates.filter(delegate => 
-    delegate.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    delegate.name.toLowerCase().includes(searchTerm .toLowerCase()) ||
     NumberToCommitteeWithIndex[delegate.committee].toLowerCase().includes(searchTerm.toLowerCase())
   );
 
