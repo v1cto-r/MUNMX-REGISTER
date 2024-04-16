@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import Cookies from 'js-cookie';
 
@@ -13,13 +13,10 @@ export default function Home() {
   const [message, setMessage] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean | null>(false);
 
-  
-
   useEffect(() => {
     if (!Cookies.get('login')) {
+      console.log('No login cookie found');
       window.location.href = '/login';
-    } else {
-      console.log(Cookies.get('login'))
     }
     
     const params = new URLSearchParams(window.location.search);

@@ -1,6 +1,5 @@
 import connectMongoDB from "@/app/connections/mongoConnection";
 import Delegate from "@/app/models/delegate";
-import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 
 export async function PUT(request: Request) {
