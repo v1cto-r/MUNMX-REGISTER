@@ -5,7 +5,8 @@ const delegateSchema = new Schema(
     country: Number,
     name: String,
     committee: Number,
-    registered: Boolean
+    registered: Boolean,
+    vegan: Boolean
   }
 );
 

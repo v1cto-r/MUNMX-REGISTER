@@ -103,21 +103,32 @@ function DelegateList() {
 }
 
 function Delegate(props: {name: string, country: number, committee: number, CommitteeKeys: {[key: number]: string}, CountryKeys: {[key: number]: string[]}}) {
+  const [vegan, setVegan] = useState<boolean>(false);
+  
   const delegateName = capitalizeFirstLetter(props.name);
   const committeeName = props.CommitteeKeys[props.committee];
   const countryName: string[] = props.CountryKeys[props.country]
   ? props.CountryKeys[props.country].map((country) => capitalizeFirstLetter(country))
   : ["Non existent country"];
 
-  const delegateProperties = {
-    name: props.name,
-    country: props.country,
-    committee: props.committee
-  }
-
   const dialogRef = useRef<HTMLDialogElement>(null);
 
+  const setVeganOption = () => {
+
+    console.log("changed vegan")
+    setVegan(!vegan);
+
+  }
+
   const registerDelegate = () => {
+
+    let delegateProperties = {
+      name: props.name,
+      country: props.country,
+      committee: props.committee,
+      vegan: vegan
+    }
+
     fetch('/api/registerDelegate', {
       method: 'PUT',
       headers: {
@@ -135,6 +146,7 @@ function Delegate(props: {name: string, country: number, committee: number, Comm
       }
     })
     .catch(error => console.error('Error:', error));
+    
   }
 
   const openDialog = () => {
@@ -156,13 +168,18 @@ function Delegate(props: {name: string, country: number, committee: number, Comm
   return (
     <div className={styles.delegateCard}>
       <h2>{delegateName}</h2>
-      <p>{countryName.join(' / ')}</p>
-      <p>{committeeName}</p>
+      <p>País: {countryName.join(' / ')}</p>
+      <p>Comité: {committeeName}</p>
       <button onClick={openDialog}>Registrar</button>
 
       <dialog ref={dialogRef} onKeyDown={(e) => (e.key === 'Escape') && closeDialog()}>
         <h2>Confirmar delegado</h2>
         <p>Seguro que quieres registrar a: <b>{delegateName}</b>?</p>
+        <p>País: <b>{countryName.join(' / ')}</b>, Comité: <b>{committeeName}</b></p>
+        <div className={styles.vegan}>
+          <input type='checkbox' id='vegan' name='vegan?' checked={vegan} onChange={(e) => setVeganOption()}/>
+          <label htmlFor='vegan'>Menú especial?</label>
+        </div>
         <div className={styles.buttons}>
           <button onClick={registerDelegate} className={styles.positive}>Yes</button>
           <button onClick={closeDialog}>No</button>

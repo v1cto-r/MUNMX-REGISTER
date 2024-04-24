@@ -14,9 +14,6 @@ export async function POST(request: Request) {
 
   const hashedRequest = crypto.scryptSync(password, "salt", 64).toString("hex");
 
-  console.log(hashedRequest);
-  console.log(user.password);
-
   if (hashedRequest !== user.password) {
     return new Response("Invalid password", { status: 401 });
   }
