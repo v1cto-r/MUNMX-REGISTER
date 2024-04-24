@@ -6,7 +6,8 @@ const delegateSchema = new Schema(
     name: String,
     committee: Number,
     registered: Boolean,
-    vegan: Boolean
+    vegan: Boolean,
+    registeredBy: Number
   }
 );
 

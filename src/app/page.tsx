@@ -114,10 +114,7 @@ function Delegate(props: {name: string, country: number, committee: number, Comm
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const setVeganOption = () => {
-
-    console.log("changed vegan")
     setVegan(!vegan);
-
   }
 
   const registerDelegate = () => {
@@ -126,7 +123,8 @@ function Delegate(props: {name: string, country: number, committee: number, Comm
       name: props.name,
       country: props.country,
       committee: props.committee,
-      vegan: vegan
+      vegan: vegan,
+      registeredBy: Number(Cookies.get('id'))
     }
 
     fetch('/api/registerDelegate', {

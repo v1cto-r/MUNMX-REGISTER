@@ -3,7 +3,7 @@ import Delegate from "@/app/models/delegate";
 import { NextResponse } from "next/server";
 
 export async function PUT(request: Request) {
-  const { name: delegateName, country: delegateCountry, committee: delegateCommittee, vegan: vegan } = await request.json();
+  const { name: delegateName, country: delegateCountry, committee: delegateCommittee, vegan: vegan, registeredBy: registeredBy } = await request.json();
   await connectMongoDB();
 
   const doc = await Delegate.findOne({ name: delegateName, country: delegateCountry, committee: delegateCommittee });
@@ -15,6 +15,7 @@ export async function PUT(request: Request) {
 
   doc.registered = true;
   doc.vegan = vegan;
+  doc.registeredBy = registeredBy;
 
   await doc.save().then(() => console.log("Delegate registered"));
 
