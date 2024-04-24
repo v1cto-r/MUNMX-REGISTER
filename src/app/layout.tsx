@@ -16,6 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="apple-touch-icon" href="/Basic-MUNMX.ico" />
+        <link rel="shortcut" href="/Basic-MUNMX.ico" />
+      </head>
       <body className={rubik.className}>{children}</body>
     </html>
   );
