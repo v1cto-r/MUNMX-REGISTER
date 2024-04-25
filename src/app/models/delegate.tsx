@@ -8,6 +8,9 @@ const delegateSchema = new Schema(
     registered: Boolean,
     vegan: Boolean,
     registeredBy: Number
+  },
+  {
+    timestamps: true
   }
 );
 
