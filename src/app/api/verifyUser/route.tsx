@@ -20,9 +20,12 @@ export async function POST(request: Request) {
 
   const cookieValue = crypto.scryptSync("munmxsal2024", "salt", 64).toString("hex");
   const id = user.identifier;
+  const role = user.role;
   const response = new Response("User verified", { status: 200 });
   response.headers.append('Set-Cookie', `login=${cookieValue}; Path=/; SameSite=Strict`);
   response.headers.append('Set-Cookie', `id=${id}; Path=/; SameSite=Strict`);
+  response.headers.append('Set-Cookie', `role=${role}; Path=/; SameSite=Strict`);
+
 
   return response;
 }

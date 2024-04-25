@@ -136,6 +136,21 @@
   color: red;
 }
 
+.settingsButton {
+  border-radius: 0;
+  border: none;
+  background: #3f3d4d;
+  border-bottom: 3px solid var(--not-white);
+}
+
+.settingsButton:hover {
+  cursor: pointer;
+}
+
+.settingsImage {
+  fill: white;
+}
+
 @media screen and (min-width: 920px) {
   .searchBar input {
     width: 50%;
